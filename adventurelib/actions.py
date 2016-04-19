@@ -27,14 +27,32 @@ required_fields = [
 
 class Action(object):
 
-    """Class to represent a basic action.
+    """A basic action as defined in a YAML file.
 
     A basic action is something like looking around. Actions
     with more complex behaviour can be subclassed from here.
 
+    An action is something that can be done at a location,
+    which causes something to happen.
+
+    Actions are defined as part of location definitions, and
+    a basic action (do a thing, obtain some exposition) should
+    be of the form:
+
+    - action: $command
+      type: exposition
+      content: >
+        Some information to be presented when the user does
+        $command.
+
     """
 
     def __init__(self, definition):
+        """Instantiate an Action.
+
+        :param definition: A dictionary from a YAML action definition.
+
+        """
         try:
             # Attempt to parse the action definition
             self.action = definition['action']

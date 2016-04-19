@@ -41,12 +41,11 @@ class Location(object):
       image: path/to/image # optional
       actions:
         - action: $command
-          output:
-            type: $output_type
-            content: |
-                Some example content string.
+          type: $output_type
+          content: >
+            Some example content string.
 
-    See the Action class for full documentation of actions
+    See the adventurelib.actions for full documentation of actions.
 
     """
 
